@@ -29,13 +29,14 @@ namespace BlackJack
 
         public Card Draw() 
         {
+            if (cards.Count == 0)
+            {
+                Console.WriteLine("The deck is empty.");
+                return null;
+            }
             Card DrawnCard = cards[0];
             dealt.Add(DrawnCard);
             cards.RemoveAt(0);
-            if(cards.Count == 0) 
-            {
-                Console.WriteLine("The deck is empty.");
-            }
             return DrawnCard;
         }
 
@@ -46,11 +47,15 @@ namespace BlackJack
             for(int i = 0; i < Handsize; i++)
             {
                 Card dealtCard = Draw();
-                if (cards[i] != null)
+                if (dealtCard != null)
                 {
                     hand.Add(dealtCard);
                 }
-            }
+                else 
+                { 
+                    return hand;
+                }
+             }
             return hand;
         }
 
@@ -82,7 +87,6 @@ namespace BlackJack
         }
         public int RemCards()
         {
-            Console.WriteLine(cards.Count);
             return cards.Count;
         }
     }

@@ -49,23 +49,41 @@
         private static void playBlackJack()
         {
             Deck deck = new Deck();
+            List<Blackjackhand> blackjackhands = new List<Blackjackhand>();
+
+            for (int i = 0; i < PlayerCount; i++)
+            {
+                blackjackhands.Add(new Blackjackhand());
+            }
+            
+
             deck.Shuffle();
             Console.WriteLine("Welcome to BlackJack!\n\nThe goal of the game is to add your cards together to equal 21, GOODLUCK!");
 
             while (deck.RemCards() > 0)
             {
-                Card ShownCard = deck.Draw();
-                Console.WriteLine(ShownCard.ToString());
-
-                for (int player = 1; player <= PlayerCount; player++)
+                for (int i = 0;i < PlayerCount;i++)
                 {
-                    List<Card> playerHand = deck.DealPlayers(HandSize);
-                    Console.WriteLine($"Player {player}'s Hand:");
-                    foreach (var card in playerHand)
+                    Card ShownCard = deck.Draw();
+                    if(ShownCard == null) 
                     {
-                        Console.WriteLine(card);
+                        break;
                     }
+                    Console.WriteLine(ShownCard.ToString());
+                    blackjackhands[i].Add(ShownCard);
+                    Console.WriteLine($"player {i} hand total: {blackjackhands[i].HandTotal()}");
                 }
+                Console.WriteLine();
+
+                //for (int player = 1; player <= PlayerCount; player++)
+                //{
+                //    List<Card> playerHand = deck.DealPlayers(HandSize);
+                //    Console.WriteLine($"Player {player}'s Hand:");
+                //    foreach (Card card in playerHand)
+                //    {
+                //        Console.WriteLine(card);
+                //    }
+                //}
             }
 
             Console.WriteLine("Thanks for playing!\n\n Press Enter to return to main menu or R to play again!");
