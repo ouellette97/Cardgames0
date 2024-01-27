@@ -1,0 +1,14 @@
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\bin\Debug\net8.0\BlackJack.exe
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\bin\Debug\net8.0\BlackJack.deps.json
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\bin\Debug\net8.0\BlackJack.runtimeconfig.json
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\bin\Debug\net8.0\BlackJack.dll
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\bin\Debug\net8.0\BlackJack.pdb
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\BlackJack.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\BlackJack.AssemblyInfoInputs.cache
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\BlackJack.AssemblyInfo.cs
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\BlackJack.csproj.CoreCompileInputs.cache
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\BlackJack.dll
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\refint\BlackJack.dll
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\BlackJack.pdb
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\BlackJack.genruntimeconfig.cache
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\ref\BlackJack.dll
