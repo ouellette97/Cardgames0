@@ -76,6 +76,7 @@ namespace BlackJack
         //}
         public void ResetandShuffle()
         {
+            cards.Clear();
             Deck deck = new Deck();
             Shuffle();
         }

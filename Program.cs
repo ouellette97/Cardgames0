@@ -2,6 +2,8 @@
 {
     internal class Program
     {
+        public static int PlayerCount;
+        public static int HandSize;
         static void Main(string[] args)
         {
             for (int i = 1; i >= 0; i++)
@@ -15,14 +17,14 @@
                 {
                     case "1":
                         Console.WriteLine("How many players are there?\n");
-                        string PlayerCount = Console.ReadLine() ?? "";
+                        PlayerCount = int.Parse(Console.ReadLine() ?? "");
                         playBlackJack();
                         i = 0;
                         Console.Clear();
                         break;
                     case "2":
                         Console.WriteLine("How many players are there?\n");
-                        PlayerCount = Console.ReadLine() ?? "";
+                        PlayerCount = int.Parse(Console.ReadLine() ?? "");
                         Console.WriteLine("How big of hands do you want?\n");
                         string Handsize = Console.ReadLine() ?? "";
                         playGoldFish();
@@ -31,7 +33,7 @@
                         break;
                     case "3":
                         Console.WriteLine("How many players are there?\n");
-                        PlayerCount = Console.ReadLine() ?? "";
+                        PlayerCount = int.Parse(Console.ReadLine() ?? "");
                         Handsize = "2";
                         playTexasHoldem();
                         i = 0;
@@ -57,17 +59,17 @@
 
                 for (int player = 1; player <= PlayerCount; player++)
                 {
-                    List<Card> playerHand = deck.DealPlayers(handSize);
+                    List<Card> playerHand = deck.DealPlayers(HandSize);
                     Console.WriteLine($"Player {player}'s Hand:");
                     foreach (var card in playerHand)
                     {
                         Console.WriteLine(card);
                     }
                 }
-                //Console.WriteLine(dealt);
-
             }
+
             Console.WriteLine("Thanks for playing!\n\n Press Enter to return to main menu or R to play again!");
+
             if (string.Equals(Console.ReadLine()?.ToLower(), "r"))
             {
                 Console.Clear();
@@ -87,7 +89,7 @@
                 //Console.WriteLine(dealt);
                 for (int player = 1; player <= PlayerCount; player++)
                 {
-                    List<Card> playerHand = deck.DealPlayers(handSize);
+                    List<Card> playerHand = deck.DealPlayers(HandSize);
                     Console.WriteLine($"Player {player}'s Hand:");
                     foreach (var card in playerHand)
                     {
@@ -117,7 +119,7 @@
                 //Console.WriteLine(dealt);
                 for (int player = 1; player <= PlayerCount; player++)
                 {
-                    List<Card> playerHand = deck.DealPlayers(handSize);
+                    List<Card> playerHand = deck.DealPlayers(HandSize);
                     Console.WriteLine($"Player {player}'s Hand:");
                     foreach (var card in playerHand)
                     {

@@ -12,3 +12,4 @@ C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\refi
 C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\BlackJack.pdb
 C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\BlackJack.genruntimeconfig.cache
 C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\ref\BlackJack.dll
+C:\Users\jouel\OneDrive\Desktop\Coding\BlackJack\BlackJack\obj\Debug\net8.0\BlackJack.sourcelink.json
