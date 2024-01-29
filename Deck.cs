@@ -74,11 +74,6 @@ namespace BlackJack
             }
         }
 
-        //public void addDeck()
-        //{
-        //    Deck deck2 = new Deck();
-        //    cards.AddRange(deck2);
-        //}
         public void ResetandShuffle()
         {
             cards.Clear();
@@ -88,6 +83,14 @@ namespace BlackJack
         public int RemCards()
         {
             return cards.Count;
+        }
+
+        public void PrintDeck()
+        {
+            for (int i = 52;i >= 0;i--)
+            {
+                Console.WriteLine();
+            }
         }
     }
 }

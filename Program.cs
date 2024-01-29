@@ -4,6 +4,7 @@
     {
         public static int PlayerCount;
         public static int HandSize;
+        public static int WinResult;
         static void Main(string[] args)
         {
             for (int i = 1; i >= 0; i++)
@@ -60,30 +61,42 @@
             deck.Shuffle();
             Console.WriteLine("Welcome to BlackJack!\n\nThe goal of the game is to add your cards together to equal 21, GOODLUCK!");
 
+            //Deck PrintDeck();
+
             while (deck.RemCards() > 0)
             {
                 for (int i = 0;i < PlayerCount;i++)
                 {
-                    Card ShownCard = deck.Draw();
-                    if(ShownCard == null) 
+                    Console.WriteLine("Press H to hit or S to stay!");
+                    string userInput = Console.ReadLine();
+
+                    if (userInput.ToUpper() == "H")
                     {
-                        break;
+                        Card ShownCard = deck.Draw();
+                        if (ShownCard == null)
+                        {
+                            break;
+                        }
+                        Console.WriteLine($"You drew a {ShownCard}", ShownCard.ToString());
+                        blackjackhands[i].Add(ShownCard);
+                        Console.WriteLine($"player {i+1}'s new hand total: {blackjackhands[i].HandTotal()}");
+
+                        if (blackjackhands[i].HandTotal() > 21)
+                        {
+                            Console.WriteLine($"You drew a {ShownCard} for a total of { blackjackhands[i].HandTotal()}");
+                            Console.WriteLine($"\nPlayer {i+1} busts! Dealer wins.");
+                            WinResult = 0;
+                            blackjackhands.Clear(); 
+                            break;
+                        }
                     }
-                    Console.WriteLine(ShownCard.ToString());
-                    blackjackhands[i].Add(ShownCard);
-                    Console.WriteLine($"player {i} hand total: {blackjackhands[i].HandTotal()}");
+                    else if(userInput.ToUpper() == "S") 
+                    {
+                        Console.WriteLine($"Player {i} is staying at: {blackjackhands[i].HandTotal()}");
+                    }
+
                 }
                 Console.WriteLine();
-
-                //for (int player = 1; player <= PlayerCount; player++)
-                //{
-                //    List<Card> playerHand = deck.DealPlayers(HandSize);
-                //    Console.WriteLine($"Player {player}'s Hand:");
-                //    foreach (Card card in playerHand)
-                //    {
-                //        Console.WriteLine(card);
-                //    }
-                //}
             }
 
             Console.WriteLine("Thanks for playing!\n\n Press Enter to return to main menu or R to play again!");

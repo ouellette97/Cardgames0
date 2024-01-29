@@ -31,6 +31,16 @@ namespace BlackJack
         {
             return cards[index];
         }
+        
+        public Card ResetHand(Card card)
+        {
+            while (cards.Count > 0)
+            {
+                this.cards.Clear();
+                return card;
+            }
+            return card;
+        }
         public int HandSize 
         { 
             get 
