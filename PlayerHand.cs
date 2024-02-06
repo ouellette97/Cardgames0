@@ -48,5 +48,14 @@ namespace BlackJack
                 return cards.Count; 
             } 
         }
-    }
+        //public Card playersHands(Card[] cards)
+        //{
+        //    List<Blackjackhand> blackjackhands = new List<Blackjackhand>();
+
+        //    for (int i = 0; i < playerCount; i++)
+        //    {
+        //        blackjackhands.Add(new Blackjackhand());
+        //    }
+        //}
+}
 }

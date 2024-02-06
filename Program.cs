@@ -2,9 +2,9 @@
 {
     internal class Program
     {
-        public static int PlayerCount;
-        public static int HandSize;
-        public static int WinResult;
+        public static int playerCount;
+        public static int handSize;
+        public static int winResult;
         static void Main(string[] args)
         {
             for (int i = 1; i >= 0; i++)
@@ -17,29 +17,28 @@
                 switch (selection)
                 {
                     case "1":
-                        Console.WriteLine("How many players are there?\n");
-                        PlayerCount = int.Parse(Console.ReadLine() ?? "");
+                        playerCount = GetPlayerCount();
+                        //BlackJackGame.BlackJack();
                         playBlackJack();
                         i = 0;
                         Console.Clear();
                         break;
+
                     case "2":
-                        Console.WriteLine("How many players are there?\n");
-                        PlayerCount = int.Parse(Console.ReadLine() ?? "");
-                        Console.WriteLine("How big of hands do you want?\n");
-                        string Handsize = Console.ReadLine() ?? "";
+                        playerCount = GetPlayerCount();
+                        handSize = GetHandSize();
                         playGoldFish();
                         i = 0;
                         Console.Clear();
                         break;
+
                     case "3":
-                        Console.WriteLine("How many players are there?\n");
-                        PlayerCount = int.Parse(Console.ReadLine() ?? "");
-                        Handsize = "2";
+                        playerCount = GetPlayerCount();
                         playTexasHoldem();
                         i = 0;
                         Console.Clear();
                         break;
+
                     default:
                         Console.WriteLine("Please enter a valid number or name of the game.");
                         break;
@@ -52,7 +51,7 @@
             Deck deck = new Deck();
             List<Blackjackhand> blackjackhands = new List<Blackjackhand>();
 
-            for (int i = 0; i < PlayerCount; i++)
+            for (int i = 0; i < playerCount; i++)
             {
                 blackjackhands.Add(new Blackjackhand());
             }
@@ -65,7 +64,7 @@
 
             while (deck.RemCards() > 0)
             {
-                for (int i = 0;i < PlayerCount;i++)
+                for (int i = 0;i < playerCount;i++)
                 {
                     Console.WriteLine("Press H to hit or S to stay!");
                     string userInput = Console.ReadLine();
@@ -85,16 +84,22 @@
                         {
                             Console.WriteLine($"You drew a {ShownCard} for a total of { blackjackhands[i].HandTotal()}");
                             Console.WriteLine($"\nPlayer {i+1} busts! Dealer wins.");
-                            WinResult = 0;
+                            winResult = 0;
                             blackjackhands.Clear(); 
+                            Console.WriteLine(blackjackhands);
                             break;
+                        }
+                        
+                        else if (blackjackhands[i].HandTotal() == 21) 
+                        {
+
                         }
                     }
                     else if(userInput.ToUpper() == "S") 
                     {
                         Console.WriteLine($"Player {i} is staying at: {blackjackhands[i].HandTotal()}");
                     }
-
+                    // Check after each round for a winning conditions
                 }
                 Console.WriteLine();
             }
@@ -118,9 +123,9 @@
                 Card ShownCard = deck.Draw();
                 Console.WriteLine(ShownCard.ToString());
                 //Console.WriteLine(dealt);
-                for (int player = 1; player <= PlayerCount; player++)
+                for (int player = 1; player <= playerCount; player++)
                 {
-                    List<Card> playerHand = deck.DealPlayers(HandSize);
+                    List<Card> playerHand = deck.DealPlayers(handSize);
                     Console.WriteLine($"Player {player}'s Hand:");
                     foreach (var card in playerHand)
                     {
@@ -148,9 +153,9 @@
                 Card ShownCard = deck.Draw();
                 Console.WriteLine(ShownCard.ToString());
                 //Console.WriteLine(dealt);
-                for (int player = 1; player <= PlayerCount; player++)
+                for (int player = 1; player <= playerCount; player++)
                 {
-                    List<Card> playerHand = deck.DealPlayers(HandSize);
+                    List<Card> playerHand = deck.DealPlayers(handSize);
                     Console.WriteLine($"Player {player}'s Hand:");
                     foreach (var card in playerHand)
                     {
@@ -166,6 +171,60 @@
                 playTexasHoldem();
 
             }
+        }
+        static int GetPlayerCount()
+        {
+            bool invalidInput;
+
+            do
+            {
+                invalidInput = false; // Reset the flag
+
+                Console.WriteLine("Enter the number of players:");
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out playerCount) && playerCount > 0)
+                {
+                    // Valid input
+                    Console.WriteLine($"Player count is: {playerCount}");
+                    break; // Exit the loop if input is valid
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid positive integer.");
+                    invalidInput = true; // Set the flag to indicate invalid input
+                }
+
+            } while (invalidInput); // Loop until valid input is provided
+
+            return playerCount; // Return the playerCount to the caller
+        }
+        static int GetHandSize()
+        {
+            bool invalidInput;
+
+            do
+            {
+                invalidInput = false; // Reset the flag
+
+                Console.WriteLine("Enter the size of hand you want to play with:");
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out handSize) && handSize > 0)
+                {
+                    // Valid input
+                    Console.WriteLine($"Hand size per player is: {handSize}");
+                    break; // Exit the loop if input is valid
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid positive integer.");
+                    invalidInput = true; // Set the flag to indicate invalid input
+                }
+
+            } while (invalidInput); // Loop until valid input is provided
+
+            return handSize; // Return the playerCount to the caller
         }
     }
 }
